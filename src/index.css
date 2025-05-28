@@ -1,92 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 20% 96.5%; /* #F3F3F9 */
+    --foreground: 210 11.1% 14.5%; /* #212529 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 210 11.1% 14.5%; /* #212529 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 11.1% 14.5%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217.1 91.2% 59.8%; /* #3B82F6 */
+    --primary-foreground: 210 40% 98%; /* Light text for primary */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 91.8%; /* #EAEAEA - Used for PRD sidebar, can be secondary bg */
+    --secondary-foreground: 210 11.1% 14.5%; /* Primary text on secondary bg */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 91.8%; /* #EAEAEA - Can be used for muted element backgrounds */
+    --muted-foreground: 215.3 25.3% 65.1%; /* #94A3B8 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 217.1 91.2% 95%; /* Lighter shade of primary for hover/accent backgrounds */
+    --accent-foreground: 217.1 91.2% 40%; /* Darker blue for text on accent */
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84.2% 60.2%; /* #EF4444 */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13.3% 91%; /* #E5E7EB */
+    --input: 220 13.3% 91%;
+    --ring: 217.1 91.2% 59.8%; /* #3B82F6 */
 
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* PRD: default border radius for cards (rounded-md) is 0.5rem */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom sidebar variables based on PRD */
+    --sidebar-background: 0 0% 91.8%; /* #EAEAEA */
+    --sidebar-foreground: 210 11.1% 14.5%; /* #212529 */
+    --sidebar-primary: 217.1 91.2% 59.8%; /* #3B82F6 for active/primary items */
+    --sidebar-primary-foreground: 210 40% 98%; /* Light text on sidebar primary */
+    --sidebar-accent: 0 0% 86.7%; /* Darker shade of sidebar-background for hover/accent */
+    --sidebar-accent-foreground: 210 11.1% 14.5%; /* Primary text on sidebar accent */
+    --sidebar-border: 0 0% 86.3%; /* Slightly darker than sidebar-background for internal borders */
+    --sidebar-ring: 217.1 91.2% 59.8%; /* #3B82F6 for focus rings in sidebar */
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222.2 84% 10%; /* Slightly lighter than dark background */
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222.2 84% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 217.1 91.2% 59.8%; /* Same blue as light mode */
+    --primary-foreground: 210 40% 98%; /* Light text on blue */
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215 20.2% 65.1%; /* Close to light's #94A3B8 HSL */
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 217.1 91.2% 15%; /* Darker subtle blue for hover */
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 30.6%; /* Darker Red */
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --ring: 217.1 91.2% 59.8%; /* Same blue as light mode for rings */
+
+    /* Custom sidebar variables for dark mode */
+    --sidebar-background: 240 5.9% 10%; /* Dark gray */
+    --sidebar-foreground: 210 40% 98%; /* Light text */
+    --sidebar-primary: 217.1 91.2% 59.8%; /* Same blue as light mode */
+    --sidebar-primary-foreground: 210 40% 98%; /* Light text on blue */
+    --sidebar-accent: 240 3.7% 15.9%; /* Slightly lighter than dark sidebar bg for hover */
+    --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217.1 91.2% 59.8%;
   }
 }
 
@@ -97,5 +95,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
