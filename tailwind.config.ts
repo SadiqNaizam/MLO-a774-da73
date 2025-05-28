@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -61,13 +62,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        // PRD specific accent colors
+        accentBlue: '#3B82F6', // Already mapped to primary via CSS var
+        accentGreen: '#10B981',
+        accentRed: '#EF4444', // Already mapped to destructive via CSS var
+        accentYellow: '#FBBF24',
+        accentOrange: '#F97316'
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        // PRD: default card radius is 0.5rem (maps to rounded-lg with this config if --radius is 0.5rem)
+        // PRD: button radius is rounded-full (Tailwind default)
+				lg: 'var(--radius)', // 0.5rem if --radius is 0.5rem
+				md: 'calc(var(--radius) - 2px)', // 0.375rem if --radius is 0.5rem
+				sm: 'calc(var(--radius) - 4px)' // 0.25rem if --radius is 0.5rem
 			},
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -92,5 +104,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
